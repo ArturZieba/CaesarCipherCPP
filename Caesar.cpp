@@ -16,9 +16,13 @@ int main()
 	// TODO: Output can be returned as a file
 	// TODO: Brute-force option that writes out all possible 0 - 25 shifts for the entered string?
 
+	std::string inputData; // Variable for storing Command Prompt input
+
 	std::ofstream outputStream; // Output file stream object, only for writing data into a file
 	outputStream.open("outputStream.txt"); // Open a stream for a file with provided name
-	outputStream << "Test123tseT"; // Write data into the stream object
+	std::cout << "Input a string: ";
+	std::cin >> inputData; // Get Command Prompt input
+	outputStream << inputData; // Write data into the stream object
 	outputStream.close(); // Closes the stream
 
 	std::ifstream inputStream; // Input file stream object, only for reading data from a file
