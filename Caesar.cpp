@@ -61,5 +61,37 @@ int main()
 	// Caesar cipher works by replacing (shifting) letters with other letters to their left by 0 - 25. For example A shifted by 0 is A; shifted by 2 is Y; shifted by 25 is B.
 	// Code implementation of this mechanic would require an input string, shift number, and outputting the modified string.
 
-	outputTextFile(inputCommandPrompt());
+	std::cout << "Type 0 to for selection 0" << '\n';
+	std::cout << "Type 1 to for selection 1" << '\n';
+	std::cout << "Type 2 to for selection 2" << '\n';
+	std::cout << "Type 3 to for selection 3" << '\n';
+	std::cout << "Type 4 to for selection 4" << '\n';
+
+	int userSelection;
+
+	std::cout << '\n' << "Your selection: ";
+	std::cin >> userSelection;
+	std::cout << '\n';
+
+	switch (userSelection)
+	{
+	case 0:
+		std::cout << "Chose 0" << '\n';
+		outputTextFile(inputCommandPrompt());
+		break;
+	case 1:
+		std::cout << "Chose 1" << '\n';
+		break;
+	case 2:
+		std::cout << "Chose 2" << '\n';
+		break;
+	case 3:
+		std::cout << "Chose 3" << '\n';
+		break;
+	case 4:
+		std::cout << "Chose 4" << '\n';
+		break;
+	default:
+		std::cout << "Not listed input" << '\n'; //TODO: Return to selection? ("Unsupported input, please try again:")
+	}
 }
