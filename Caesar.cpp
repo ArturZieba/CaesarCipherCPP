@@ -64,24 +64,32 @@ int main()
 	std::cout << "Type 0 to use Command Prompt for input" << '\n';
 	std::cout << "Type 1 to use a text file for input" << '\n';
 
-	int userInputSelection;
+	char userInputSelection; // User choice of an input type
 
-	std::cout << '\n' << "Your selection: ";
-	std::cin >> userInputSelection;
-	std::cout << '\n';
-
-	switch (userInputSelection)
+	bool inputValidInputSelection = false; // For looping through the switch statement until a valid input is provided
+	while (!inputValidInputSelection)
 	{
-	case 0:
-		std::cout << "Chose 0" << '\n';
-		inputCommandPrompt();
-		break;
-	case 1:
-		std::cout << "Chose 1" << '\n';
-		inputTextFile();
-		break;
-	default:
-		std::cout << "Not listed input" << '\n'; //TODO: Return to selection? ("Unsupported input, please try again:")
+		std::cout << '\n' << "Your selection: ";
+		std::cin >> userInputSelection;
+		std::cout << '\n';
+
+		switch (userInputSelection)
+		{
+		case '0':
+			std::cout << "Chose 0" << '\n';
+			inputCommandPrompt();
+			inputValidInputSelection = true;
+			break;
+		case '1':
+			std::cout << "Chose 1" << '\n';
+			inputTextFile();
+			inputValidInputSelection = true;
+			break;
+		default:
+			std::cout << "Not listed input" << '\n';
+			break;
+		}
+		// TODO: Make switch not read multiple char inputs multiple times 
 	}
 
 	std::cout << "Choose output type: " << '\n';
@@ -90,31 +98,41 @@ int main()
 	std::cout << "Type 2 to output all possible ciphers into the Command Prompt" << '\n';
 	std::cout << "Type 3 to output all possible ciphers into a text file" << '\n';
 
-	int userOutputSelection;
+	char userOutputSelection; // User choice of an output type
 
-	std::cout << '\n' << "Your selection: ";
-	std::cin >> userOutputSelection;
-	std::cout << '\n';
-
-	switch (userOutputSelection)
+	bool inputValidOutputSelection = false; // For looping through the switch statement until a valid input is provided
+	while (!inputValidOutputSelection)
 	{
-	case 0:
-		std::cout << "Chose 0" << '\n';
-		outputCommandPrompt("Option 0");
-		break;
-	case 1:
-		std::cout << "Chose 1" << '\n';
-		outputTextFile("Option 1");
-		break;
-	case 2:
-		std::cout << "Chose 2" << '\n';
-		outputAllPossibleCiphersCommandPrompt("Option 2");
-		break;
-	case 3:
-		std::cout << "Chose 3" << '\n';
-		outputAllPossibleCiphersTextFile("Option 3");
-		break;
-	default:
-		std::cout << "Not listed input" << '\n'; //TODO: Return to selection? ("Unsupported input, please try again:")
+		std::cout << '\n' << "Your selection: ";
+		std::cin >> userOutputSelection;
+		std::cout << '\n';
+
+		switch (userOutputSelection)
+		{
+		case '0':
+			std::cout << "Chose 0" << '\n';
+			outputCommandPrompt("Option 0");
+			inputValidOutputSelection = true;
+			break;
+		case '1':
+			std::cout << "Chose 1" << '\n';
+			outputTextFile("Option 1");
+			inputValidOutputSelection = true;
+			break;
+		case '2':
+			std::cout << "Chose 2" << '\n';
+			outputAllPossibleCiphersCommandPrompt("Option 2");
+			inputValidOutputSelection = true;
+			break;
+		case '3':
+			std::cout << "Chose 3" << '\n';
+			outputAllPossibleCiphersTextFile("Option 3");
+			inputValidOutputSelection = true;
+			break;
+		default:
+			std::cout << "Not listed input" << '\n';
+			break;
+		}
+		// TODO: Make switch not read multiple char inputs multiple times 
 	}
 }
